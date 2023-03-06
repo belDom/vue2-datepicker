@@ -1,4 +1,5 @@
 /* istanbul ignore file */
+import { VueMaskDirective } from 'v-mask';
 import DatePicker from './date-picker';
 import CalendarPanel from './calendar/calendar-panel';
 import CalendarRange from './calendar/calendar-range';
@@ -12,6 +13,7 @@ DatePicker.locale = locale;
 
 DatePicker.install = function install(Vue) {
   Vue.component(DatePicker.name, DatePicker);
+  Vue.directive('mask', VueMaskDirective);
 };
 
 if (typeof window !== 'undefined' && window.Vue) {

@@ -133,6 +133,9 @@ export default {
         return [];
       },
     },
+    mask: {
+      type: String,
+    },
   },
   data() {
     return {
@@ -473,9 +476,16 @@ export default {
         input: this.handleInputInput,
         change: this.handleInputChange,
       };
+      const mask = this.mask || '';
       const input = this.renderSlot(
         'input',
-        <input value={value} class={className} {...{ attrs, on: events }} ref="input" />,
+        <input
+          v-mask={mask}
+          value={value}
+          class={className}
+          {...{ attrs, on: events }}
+          ref="input"
+        />,
         {
           props,
           events,
